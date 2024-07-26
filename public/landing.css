@@ -1,0 +1,147 @@
+body {
+    background: linear-gradient(90deg, #2342D6 3.7%, #064485 97.86%);
+    font-family: 'Inter', sans-serif;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.navbar {
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo a {
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    margin-top: 23px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.nav-buttons button {
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 11px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: normal;
+    background: white;
+    color: black;
+}
+
+#employ-btn {
+    background-color: #2341d5;
+    color: white;
+}
+
+#display-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 10% auto 0;
+}
+
+#display-text {
+    flex: 1;
+    margin-right: 40px;
+    margin-left: 10%;
+}
+
+#title1 {
+    color: #FFF;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#title2 {
+    color: #FFF;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+#browse {
+    color: #FFF;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration-line: underline;
+}
+
+#display-image {
+    max-height: 300px;
+    flex: 1;
+}
+
+#display-illustration {
+    max-height: 250px;
+}
+
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-buttons {
+        margin-top: 10px;
+    }
+
+    .nav-buttons button {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+
+    #display-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5%;
+    }
+
+    #display-text {
+        margin-right: 0;
+        margin-left: 5%;
+        text-align: center;
+    }
+
+    #title1 {
+        font-size: 2.5rem;
+        margin-left: 0;
+    }
+
+    #title2 {
+        font-size: 1.25rem;
+        margin-left: 0;
+    }
+
+    #browse {
+        margin-left: 0;
+    }
+
+    #display-image {
+        margin-top: 20px;
+        max-height: 150px;
+    }
+    #display-illustration {
+        max-height: 100px;
+    }
+}

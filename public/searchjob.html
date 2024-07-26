@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireMe</title>
+    <link rel="stylesheet" href="searchjob.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins
+:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,30
+0;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="landing.html">HireMe</a>
+        </div>
+        <div class="nav-buttons">
+            <button id="login-btn">Employer</button>
+        </div>
+    </nav>
+
+    <div id="container">
+        <h3 id="title">Search job</h3>
+        <p id="label">Company Name</p>
+        <input id="search-input" type="text" placeholder="companyname">
+        <button id="search-btn">Search</button>
+    </div>
+    <div id="search-result"></div>
+    <script>
+        const button = document.getElementById("search-btn");
+        button.addEventListener("click", () => {
+            const Company = document.getElementById("search-input").value;
+            console.log(Company);
+            
+            const xmlHTTPRequest = new XMLHttpRequest();
+            xmlHTTPRequest.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    const data = JSON.parse(this.responseText);
+                    let found = false;
+                    let text = ``;
+                    data.forEach(element => {
+                        if (element["cname"] === Company) {
+                            found = true;
+                            text += `<p> Position: ${element["position"]}</p>
+                                    <p> Company Name: ${element["cname"]} </p>
+                                    <p> Location: ${element["location"]} </p>
+                                    <p> Minimum Salary: ${element["min"]} </p>
+                                    <p> Description: ${element["desc"]} </p>
+                                    <br><br>`;
+                        }
+                        
+                    });
+
+                    if(found) {
+                        document.getElementById("search-result").innerHTML = text;
+                    }else{
+                        document.getElementById("search-result").innerHTML = "No jobs found";
+                    }
+
+
+                }
+            };
+            xmlHTTPRequest.open("GET", "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vfwyrnc/endpoint/search", true);
+            xmlHTTPRequest.send();
+        });
+
+        const signupButton = document.getElementById('login-btn');
+
+        signupButton.addEventListener('click', () => {
+            window.location.href = 'login.html'; 
+        });
+    </script>
+</body>
+
+</html>
